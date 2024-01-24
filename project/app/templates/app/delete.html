@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}удалятель{% endblock %}
+
+
+
+{% block content %}
+    <div class="features">
+            <form method="post">
+                {{ csrf_token }}
+            </form>
+
+        <button class="btn btn-warning">Удалить Статью</button>
+    </div>
+{% endblock %}

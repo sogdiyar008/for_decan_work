@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+
+
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="features">
+        <h1>Форма для добавления <br>товаров</h1>
+
+        <form method="post">
+            {% csrf_token %}<br>
+            Наименование товара: <br>
+            {{ form.name }}<br>
+            Описание товара: <br>
+            {{ form.info }}<br>
+            Ссылка на фото товара: <br>
+            {{ form.img }}<br>
+            Стоимость товара: <br>
+            {{ form.price }}<br>
+            <br><br>
+            <button class="btn btn-success" type="submit">Добавить ещё</button>
+        </form><br>
+            <a href="{% url 'home' %}"><button class="btn btn-warning">Перейти на главную страницу</button></a>
+
+
+    </div>
+{% endblock %}

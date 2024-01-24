@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Гланая{% endblock %}
+
+
+
+{% block content %}
+    <div class="features">
+        <h1>Товары в наличии</h1>
+        {% for el in tovars %}
+            <div class="alert alert-warning">
+                <h3>{{ el.name }}</h3>
+                <div class="block">
+                    <p style="margin: 0 20px;">Описание товара: <br> {{ el.info }}</p>
+                    <img class="imgtovar" style="color: red;" src="{{ el.img }}" alt="Фотография не нашлась:( видимо вы неверную ссылку ввели">
+                </div> <br>
+                <a href="{% url 'update' el.id %}"><button class="btn btn-success">Изменить</button></a>
+                <a href="{% url 'delete' el.id %}"><button class="btn btn-danger">удалить</button></a>
+            </div>
+        {% endfor %}
+        <a href="{% url 'add' %}"><button class="btn btn-warning">Добавить</button></a>
+    </div>
+{% endblock %}
